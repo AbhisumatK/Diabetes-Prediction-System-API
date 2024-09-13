@@ -7,6 +7,7 @@ import pickle
 app = FastAPI()
 pickle_in = open("classifier.pkl","rb")
 classifier=pickle.load(pickle_in)
+PORT = process.env.PORT || 3000
 
 # 3. Index route, opens automatically on http://127.0.0.1:8000
 @app.get('/')
@@ -45,6 +46,6 @@ def predict_diabetes(data:diab):
 # 5. Run the API with uvicorn
 #    Will run on http://127.0.0.1:8000
 if __name__ == '__main__':
-    uvicorn.run(mainapp, host = '0.0.0.0')
+    uvicorn.run(mainapp, host = '0.0.0.0', PORT)
     
 #uvicorn app:app --reload
