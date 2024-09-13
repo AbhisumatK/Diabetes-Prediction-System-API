@@ -7,4 +7,3 @@ openpyxl
 gunicorn 
 uvicorn
 fastapi
-dotenv
