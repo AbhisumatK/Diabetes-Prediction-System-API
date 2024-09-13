@@ -3,11 +3,14 @@ import uvicorn
 from fastapi import FastAPI
 from diabetes import diab
 import pickle
+import os
+from dotenv import load_dotenv
+load_dotenv()
 # 2. Create the app object
 app = FastAPI()
 pickle_in = open("classifier.pkl","rb")
 classifier=pickle.load(pickle_in)
-PORT = process.env.PORT || 3000
+PORT = os.getenv('PORT') or 3000
 
 # 3. Index route, opens automatically on http://127.0.0.1:8000
 @app.get('/')
